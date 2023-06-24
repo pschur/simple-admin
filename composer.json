@@ -1,0 +1,7 @@
+{
+    "require": {
+        "illuminate/database": "^10.13",
+        "miladrahimi/phpcrypt": "^5.0",
+        "ext-http": "*"
+    }
+}
