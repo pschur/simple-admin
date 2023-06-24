@@ -37,7 +37,7 @@ function auth():object{
 
         public function check_redirect(){
             if (!$this->check()) {
-                redirect('login.php?back='.urlencode(request()->fullUrl()));
+                redirect(BASE_URL.'/login.php?back='.urlencode(request()->fullUrl()));
             }
         }
 
