@@ -12,7 +12,7 @@ auth()->check_redirect();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/css/app.css">
 </head>
 <body class="container">
     <?php require __DIR__.'/nav.php' ?>
