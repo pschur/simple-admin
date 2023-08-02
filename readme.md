@@ -49,6 +49,12 @@ $GLOBALS['config'] = [
             'table' => true,
             'hidden' => false
         ],
+		'email' => resource_field('Email, 'email', false, validation: [
+			'string' => true,
+			'email' => true,
+			'min' => 3,
+			'max' => 255
+	    ])
     ],
     'permissions' => [
         'index' => true,
@@ -63,6 +69,9 @@ $GLOBALS['config'] = [
 
 require __DIR__.'/_provider.php';
 ?>
+```
+```php
+resource_field(string $label, string $type = 'string', bool $required = true, bool $table = true, bool $readonly = false, string $default = null, array $validation = [], bool $hidden = false);
 ```
 
 I think the most is self explaining, but here is a quick overview of the config:
