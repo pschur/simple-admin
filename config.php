@@ -1,7 +1,30 @@
 <?php
 defined('MAIN') ?: die('Forbidden');
-const ROOT = __DIR__;
-const BASE_URL = 'https://admin.test';
+
+$config = [
+    'root' => __DIR__,
+    'base_url' => 'https://admin.test',
+    'dev' => false,
+    'database' => [
+        'driver' => 'mysql',
+        'host' => 'localhost',
+        'database' => 'admin',
+        'username' => 'root',
+        'password' => '',
+        'charset' => 'utf8',
+        'collation' => 'utf8mb4_general_ci',
+        'prefix' => '',
+    ]
+];
+
+const ROOT = $config['root'];
+const BASE_URL = $config['base_url'];
+
+if ($config['dev']){
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -10,16 +33,7 @@ require __DIR__ . '/vendor/autoload.php';
 class DB extends \Illuminate\Database\Capsule\Manager {}
 
 $db = new DB;
-$db->addConnection([
-    'driver' => 'mysql',
-    'host' => 'localhost',
-    'database' => 'admin',
-    'username' => 'root',
-    'password' => '',
-    'charset' => 'utf8',
-    'collation' => 'utf8_unicode_ci',
-    'prefix' => '',
-]);
+$db->addConnection($config['databse');
 $db->setAsGlobal();
 
 // helper
