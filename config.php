@@ -245,6 +245,10 @@ function resource_field(string $label, string $type = 'string', bool $required =
     return compact('label', 'type', 'required', 'readonly', 'default', 'validation', 'table', 'hidden');
 }
 
+if (file_exists(ROOT.'/install.php') && !defined('INSTALLER') && INSTALLER != true){
+    redirect(BASE_URL.'/install.php');
+}
+
 // SESSION
 
 request()->session()->intialize();
