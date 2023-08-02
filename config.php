@@ -227,6 +227,10 @@ function validation():object{
     };
 }
 
+function resource_field(string $label, string $type = 'string', bool $required = true, bool $table = true, bool $readonly = false, string $default = null, array $validation = [], bool $hidden = false){
+    return compact('label', 'type', 'required', 'readonly', 'default', 'validation', 'table', 'hidden');
+}
+
 // SESSION
 
 request()->session()->intialize();
